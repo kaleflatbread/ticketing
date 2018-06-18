@@ -1,0 +1,20 @@
+<h1><%= @employee.name %></h1>
+
+<h3><%= @employee.name %>'s projects</h3>
+
+    <h3>
+    <% @employee.projects.each do |project| %>
+
+      <u><%= link_to project.name, project %>:</u><br>
+
+      <ul>
+
+      <% project.tickets.each do |ticket| %>
+
+      <% if !ticket.complete %>
+        <li> <%= link_to ticket.name, ticket %></li> <br>
+      <% end %>
+      <% end %>
+      </ul>
+    <% end %>
+  </h3>

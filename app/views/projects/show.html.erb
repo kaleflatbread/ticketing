@@ -1,0 +1,9 @@
+<h1>Project Name: <%= @project.name %></h1>
+
+<h4><%= @project.name %> tasks</h4>
+
+    <ul>
+      <% @project.tickets.each do |ticket| %>
+        <li><%= link_to ticket.name, ticket %> — Complete? <%= ticket.complete %></li>
+      <% end %>
+    </ul>

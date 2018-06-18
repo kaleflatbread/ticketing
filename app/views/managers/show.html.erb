@@ -1,0 +1,17 @@
+<h1><%= @manager.name %></h1>
+
+<h3><%= @manager.name %>'s Employees</h3>
+
+    <h3>
+    <% @manager.employees.each do |employee| %>
+
+      <u><%= link_to employee.name, employee %>:</u><br>
+
+      <ul>
+      <% employee.tickets.each do |ticket| %>
+
+        <li> <%= link_to ticket.name, ticket %></li> <br>
+      <% end %>
+      </ul>
+    <% end %>
+  </h3>
