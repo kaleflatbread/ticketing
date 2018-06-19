@@ -1,0 +1,13 @@
+<%= form_for @employee do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+
+  <%= f.label :manager_id %>
+  <%= f.collection_select(:manager_id, @all_managers, :id, :name) %><br>
+
+
+  <%= f.submit %>
+<% end %>
