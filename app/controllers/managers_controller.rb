@@ -14,6 +14,7 @@ class ManagersController < ApplicationController
 
   def create
     @manager = Manager.create(manager_params)
+    redirect_to @manager
   end
 
   def edit
@@ -23,6 +24,7 @@ class ManagersController < ApplicationController
   def update
     find_manager
     @manager.update(manager_params)
+    redirect_to @manager
   end
 
   def destroy

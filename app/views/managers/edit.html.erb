@@ -1,3 +1,9 @@
-<%= form_tag manager_path(@manager), method: "put" do %>
-  <%= render 'form' %>
+<%= form_for @manager do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+
+  <%= f.submit %>
 <% end %>

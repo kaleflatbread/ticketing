@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.create(project_params)
+    redirect_to @project
   end
 
   def edit
@@ -23,6 +24,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @project.update(project_params)
+    redirect_to @project
   end
 
   def destroy
@@ -36,7 +38,7 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:name, :title)
+      params.require(:project).permit(:name, :description)
     end
 
 end

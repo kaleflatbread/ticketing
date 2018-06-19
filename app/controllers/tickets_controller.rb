@@ -6,6 +6,8 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
+    @all_employees = Employee.all
+    @all_projects = Project.all
   end
 
   def show
@@ -14,15 +16,23 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.create(ticket_params)
+    @all_employees = Employee.all
+    @all_projects = Project.all
+    redirect_to @ticket
   end
 
   def edit
     find_ticket
+    @all_employees = Employee.all
+    @all_projects = Project.all
   end
 
   def update
     @ticket = Ticket.find(params[:id])
     @ticket.update(ticket_params)
+    @all_employees = Employee.all
+    @all_projects = Project.all
+    redirect_to @ticket
   end
 
   def destroy
@@ -36,7 +46,7 @@ class TicketsController < ApplicationController
     end
 
     def ticket_params
-      params.require(:ticket).permit(:name, :title)
+      params.require(:ticket).permit(:name, :description, :employee_id, :project_id, :complete)
     end
 
 end

@@ -1,0 +1,20 @@
+<%= form_for @ticket do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %><br>
+
+  <%= f.label :complete %>
+  <%= f.text_field :complete %><br>
+
+  <%= f.label :project_id %>
+  <%= f.collection_select(:project_id, @all_projects, :id, :name) %><br>
+
+  <%= f.label :employee_id %>
+  <%= f.collection_select(:employee_id, @all_employees, :id, :name) %><br>
+
+
+
+  <%= f.submit %>
+<% end %>
