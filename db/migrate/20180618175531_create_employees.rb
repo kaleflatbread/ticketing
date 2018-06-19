@@ -4,6 +4,7 @@ class CreateEmployees < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :title
       t.integer :manager_id
+      t.string :username      
 
       t.timestamps
     end

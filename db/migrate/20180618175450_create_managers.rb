@@ -3,6 +3,7 @@ class CreateManagers < ActiveRecord::Migration[5.2]
     create_table :managers do |t|
       t.string :name
       t.string :title
+      t.string :username
 
       t.timestamps
     end

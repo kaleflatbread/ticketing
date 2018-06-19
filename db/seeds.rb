@@ -12,20 +12,20 @@ Ticket.destroy_all
 EmployeeProject.destroy_all
 
 
-scott = Manager.create(name: "Michael Scott", title: "Regional Manager")
-bluth = Manager.create(name: "Michael Bluth", title: "CEO")
-knope = Manager.create(name: "Leslie Knope", title: "City Council")
-swanson = Manager.create(name: "Ron Swanson", title: "Director")
-donaghy = Manager.create(name: "Jack Donaghy", title: "GE Vice President of East Coast Television and Microwave Oven Programming")
+scott = Employee.create(name: "Michael Scott", title: "Regional Employee", username: "michaelscott")
+bluth = Employee.create(name: "Michael Bluth", title: "CEO", username: "michaelbluth", manager_id: nil)
+knope = Employee.create(name: "Leslie Knope", title: "City Council", username: "leslieknope", manager_id: nil)
+swanson = Employee.create(name: "Ron Swanson", title: "Director", username: "ronswanson", manager_id: nil)
+donaghy = Employee.create(name: "Jack Donaghy", title: "GE Vice President of East Coast Television and Microwave Oven Programming", username: "jackdonaghy", manager_id: nil)
 
-april = Employee.create(name: "April Ludgate", title: "Deputy Director of Animal Control", manager_id: swanson.id)
-andy = Employee.create(name: "Andy Dwyer", title: "Shoe Shiner", manager_id: knope.id)
-george = Employee.create(name: "George Michael Bluth", title: "Mr. Manager", manager_id: bluth.id)
-gob = Employee.create(name: "Gob Bluth", title: "Magician", manager_id: bluth.id)
-liz = Employee.create(name: "Liz Lemon", title: "Head Writer", manager_id: donaghy.id)
-tracy = Employee.create(name: "Tracy Jordan", title: "Actor", manager_id: donaghy.id)
-pam = Employee.create(name: "Pam Beasley", title: "Receptionist", manager_id: scott.id)
-dwight = Employee.create(name: "Dwight Schrute", title: "Beet Farmer", manager_id: scott.id)
+april = Employee.create(name: "April Ludgate", title: "Deputy Director of Animal Control", manager_id: swanson.id, username: "aprilludgate")
+andy = Employee.create(name: "Andy Dwyer", title: "Shoe Shiner", manager_id: knope.id, username: "andydwyer")
+george = Employee.create(name: "George Michael Bluth", title: "Mr. Manager", manager_id: bluth.id, username: "georgemichaelbluth")
+gob = Employee.create(name: "Gob Bluth", title: "Magician", manager_id: bluth.id, username: "gobbluth")
+liz = Employee.create(name: "Liz Lemon", title: "Head Writer", manager_id: donaghy.id, username: "lizlemon")
+tracy = Employee.create(name: "Tracy Jordan", title: "Actor", manager_id: donaghy.id, username: "tracyjordan")
+pam = Employee.create(name: "Pam Beasley", title: "Receptionist", manager_id: scott.id, username: "pambeasly")
+dwight = Employee.create(name: "Dwight Schrute", title: "Beet Farmer", manager_id: scott.id, username: "dwightscrhute")
 
 
 pit = Project.create(name: "the pit", description: "fill the pit")

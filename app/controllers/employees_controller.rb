@@ -10,25 +10,36 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
-    @all_managers = Manager.all
+    @all_managers = Employee.all
   end
 
   def create
-    @employee = Employee.create(employee_params)
-    @all_managers = Manager.all
-    redirect_to @employee
+    @employee = Employee.new(employee_params)
+    @all_managers = Employee.all
+
+    if @employee.valid?
+      @employee.save
+      redirect_to @employee
+    else
+      render :new
+    end
   end
 
   def edit
     find_employee
-    @all_managers = Manager.all
+    @all_managers = Employee.all
   end
 
   def update
     @employee = Employee.find(params[:id])
-    @employee.update(employee_params)
-    @all_managers = Manager.all
-    redirect_to @employee
+    @all_managers = Employee.all
+
+
+    if @employee.update(employee_params)
+      redirect_to @employee
+    else
+      render :edit
+    end
   end
 
   def destroy

@@ -14,25 +14,37 @@ class TicketsController < ApplicationController
     find_ticket
   end
 
+
   def create
-    @ticket = Ticket.create(ticket_params)
     @all_employees = Employee.all
     @all_projects = Project.all
-    redirect_to @ticket
+    @ticket = Ticket.new(ticket_params)
+    if @ticket.valid?
+      @ticket.save
+      redirect_to @ticket
+    else
+      render :new
+    end
   end
+
 
   def edit
     find_ticket
     @all_employees = Employee.all
     @all_projects = Project.all
+
   end
 
   def update
     @ticket = Ticket.find(params[:id])
-    @ticket.update(ticket_params)
     @all_employees = Employee.all
     @all_projects = Project.all
-    redirect_to @ticket
+    @ticket = Ticket.new(ticket_params)
+    if @ticket.update(ticket_params)
+      redirect_to @ticket
+    else
+      render :edit
+    end
   end
 
   def destroy
