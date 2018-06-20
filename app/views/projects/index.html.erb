@@ -3,7 +3,12 @@
 <ul>
   <% @projects.each do |project| %>
     <li> <%= link_to project.name, project %></li>
+    <% if logged_in_as_manager?(Employee.find_by(id: session[:employee_id]).manager_id) %>
+      <%= link_to "Edit", edit_project_path(project) %>
+    <% end %>
   <% end %>
 </ul>
 
-<%= link_to "New", new_project_path %>
+<% if logged_in_as_manager?(Employee.find_by(id: session[:employee_id]).manager_id) %>
+  <%= link_to "New", new_project_path %>
+<% end %>

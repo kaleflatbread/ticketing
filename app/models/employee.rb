@@ -6,7 +6,7 @@ class Employee < ApplicationRecord
   validates :name, :title, presence: true
   validates :username, uniqueness: true
 
-  # has_secure_password
+  has_secure_password
 
   def find_manager
     @manager = self.manager_id

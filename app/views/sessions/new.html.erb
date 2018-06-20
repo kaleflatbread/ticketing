@@ -1,6 +1,18 @@
 <h1>Log in:</h1>
 
-<%= form_with(model: employee, local: true, url: sessions_path) do |form| %>
+<%= form_with(model: Employee, local: true, url: sessions_path) do |form| %>
+
+    <% if @errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(@errors.count, "error") %> prohibited this user from logging in: </h3>
+
+        <ul>
+          <% @errors.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>    
 
     <div class="field">
         <%= form.label :username %>
@@ -15,5 +27,5 @@
     <div class="actions">
         <%= form.submit "Log in" %>
     </div>
-    
+
 <% end %>

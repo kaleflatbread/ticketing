@@ -39,7 +39,6 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     @all_employees = Employee.all
     @all_projects = Project.all
-    @ticket = Ticket.new(ticket_params)
     if @ticket.update(ticket_params)
       redirect_to @ticket
     else

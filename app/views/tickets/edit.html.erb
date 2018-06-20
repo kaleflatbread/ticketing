@@ -5,8 +5,10 @@
   <%= f.label :description %>
   <%= f.text_area :description %><br>
 
-  <%= f.label :complete %>
-  <%= f.text_field :complete %><br>
+  <%= f.label :complete_true, "True" %>
+  <%= f.radio_button :complete, true %>
+  <%= f.label :complete_false, "False" %>
+  <%= f.radio_button :complete, false %><br>
 
   <%= f.label :project_id %>
   <%= f.collection_select(:project_id, @all_projects, :id, :name) %><br>

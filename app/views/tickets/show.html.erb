@@ -1,6 +1,8 @@
 <h1>Ticket Name: <%= @ticket.name %></h1>
 
 <p><%= @ticket.description %></p>
+<p>Completed?<%= @ticket.complete %></p>
+
 
 
 <%= form_for @ticket do |f| %>

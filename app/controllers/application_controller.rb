@@ -1,5 +1,11 @@
 class ApplicationController < ActionController::Base
 
+  protect_from_forgery with: :exception
+
+  before_action :authenticate!
+
+  helper SessionHelper
+
   def current_user
     session[:name] ||= params[:name]
   end
@@ -7,6 +13,6 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate!
-    #authenticate something here
+    redirect_to new_session_url unless helpers.logged_in?
   end
 end
