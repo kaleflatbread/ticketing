@@ -1,0 +1,19 @@
+<h1>Log in:</h1>
+
+<%= form_with(model: employee, local: true, url: sessions_path) do |form| %>
+
+    <div class="field">
+        <%= form.label :username %>
+        <%= form.text_field :username %>
+    </div>
+
+    <div class="field">
+        <%= form.label :password %>
+        <%= form.password_field :password %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit "Log in" %>
+    </div>
+    
+<% end %>
