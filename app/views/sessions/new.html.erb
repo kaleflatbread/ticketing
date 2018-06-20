@@ -4,15 +4,15 @@
 
     <% if @errors.any? %>
       <div id="error_explanation">
-        <h3><%= pluralize(@errors.count, "error") %> prohibited this user from logging in: </h3>
+        <h3>Something went wrong with your login</h3>
 
-        <ul>
           <% @errors.each do |message| %>
-            <li><%= message %></li>
+            <%= message %>
           <% end %>
-        </ul>
       </div>
-    <% end %>    
+    <% end %>
+
+    <br>
 
     <div class="field">
         <%= form.label :username %>

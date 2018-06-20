@@ -1,8 +1,8 @@
-<h1>Project index:</h1>
+<h1>Current Projects</h1>
 
 <ul>
   <% @projects.each do |project| %>
-    <li> <%= link_to project.name, project %></li>
+     <li> <%= link_to project.name, project %></li>
     <% if logged_in_as_manager?(Employee.find_by(id: session[:employee_id]).manager_id) %>
       <%= link_to "Edit", edit_project_path(project) %>
     <% end %>

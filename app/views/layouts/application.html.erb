@@ -6,28 +6,28 @@
     <%= csp_meta_tag %>
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Quicksand|Raleway" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <link rel="stylesheet" href="./stylesheet/login.css">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
     <header>
-      <ul>
+      <div class="login-buttons">
       <% if logged_in? %>
-        <li>
           <%= link_to logged_in_employee.name, employee_path(logged_in_employee) %> is logged in!
-          <%= button_to "Logout", destroy_session_path, method: :delete %>
-        </li>
+          <button class="ui secondary button">
+            <%= link_to "Logout", destroy_session_path, method: :delete %>
+          </button>
       <% else %>
-        <li>
+      <button class="ui secondary button">
           <%= link_to "Register", '/employees/new' %>
-        </li>
-        <li>
+        </button>
+      <button class="ui secondary button">
           <%= link_to "Login", new_session_path %>
-        </li>
+      </button>
       <% end %>
-      </ul>
-      <h1>Ticketing</h1>
+    </div>
     </header>
     <main><%= yield %></main>
   </body>

@@ -13,7 +13,5 @@
 
 
 <% if logged_in_as_manager?(Employee.find_by(id: session[:employee_id]).manager_id) %>
-  <button class="ui secondary button">
     <%= link_to "New", new_ticket_path %>
-  </button>
 <% end %>
