@@ -6,6 +6,7 @@ class CreateTickets < ActiveRecord::Migration[5.2]
       t.boolean :complete, default: false
       t.integer :project_id
       t.integer :employee_id
+      t.date :due_date
 
       t.timestamps
     end

@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_06_18_175750) do
     t.boolean "complete", default: false
     t.integer "project_id"
     t.integer "employee_id"
+    t.date "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

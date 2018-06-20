@@ -5,8 +5,8 @@
   <%= f.label :description %>
   <%= f.text_area :description %><br>
 
-  <%# f.label :complete %>
-  <%# f.text_field :complete %>
+  <%= f.label :due_date %>
+  <%= f.date_select :due_date %><br>
 
   <%= f.label :project_id %>
   <%= f.collection_select(:project_id, @all_projects, :id, :name) %><br>
