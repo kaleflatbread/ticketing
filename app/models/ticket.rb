@@ -34,5 +34,10 @@ class Ticket < ApplicationRecord
     find_manager.title
   end
 
+  def find_logged_in_employee
+    @id = session[:employee_id]
+    @employee_array = Employee.where(:manager_id => @id)
+  end
+
 
 end

@@ -1,19 +1,30 @@
 <h1><%= @employee.name %></h1>
 
+  <h3>This manager's employees:</h3>
+    <ul>
+      <% @employee.list_managers_employees.each do |employee| %>
+      <li><%= link_to employee.name, employee %></li>
+      <% end %>
+    </ul>
 <h3><%= @employee.name %>'s projects</h3>
 
     <h3>
+
+
+
+
     <% @employee.projects.each do |project| %>
 
-      <u><%= link_to project.name, project %>:</u><br>
+      <h5><u><%= link_to project.name, project %>:</u></h5><br>
+
+          <p>Open tickets:</p>
 
       <ul>
 
-      <% project.tickets.each do |ticket| %>
-
-      <% if !ticket.complete %>
-        <li> <%= link_to ticket.name, ticket %></li> <br>
-      <% end %>
+      <% project.sort_tickets.each do |ticket| %>
+        <% if !ticket.complete %>
+          <li> <%= link_to ticket.name, ticket %></li> <br>
+        <% end %>
       <% end %>
       </ul>
     <% end %>

@@ -2,16 +2,18 @@
 
  <%# make an outer loop to iterate through a manager's specific employees %>
 <ul>
-  <% @tickets.each do |ticket| %>
-    <li> <%= link_to ticket.name, ticket %> </li>
-    <% if logged_in_as_manager?(Employee.find_by(id: session[:employee_id]).manager_id) %>
-      <%= link_to "Edit", edit_ticket_path(ticket) %>
+    <% @tickets.each do |ticket| %>
+      <li> <strong><%= link_to ticket.name, ticket %></strong> </li>
+        <% if logged_in_as_manager?(Employee.find_by(id: session[:employee_id]).manager_id) %>
+          <%= link_to "Edit", edit_ticket_path(ticket) %>
+        <% end %>
     <% end %>
 
-  <% end %>
 </ul>
 
 
 <% if logged_in_as_manager?(Employee.find_by(id: session[:employee_id]).manager_id) %>
-  <%= link_to "New", new_ticket_path %>
+  <button class="ui secondary button">
+    <%= link_to "New", new_ticket_path %>
+  </button>
 <% end %>

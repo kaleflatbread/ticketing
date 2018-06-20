@@ -28,9 +28,15 @@ class Project < ApplicationRecord
     (number_of_tickets_completed / count_tickets)*100.0.to_s + "%"
   end
 
-  def next_ticket_due
-    #add due_date to schema + views
+  def sort_tickets
+    #modify to only show completed tickets!!
+    self.tickets.order(:due_date)
   end
+
+  def next_ticket_due
+    sort_tickets.first
+  end
+
 
 
 
