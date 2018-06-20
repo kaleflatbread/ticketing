@@ -1,3 +1,16 @@
 <h1>Ticket Name: <%= @ticket.name %></h1>
 
 <p><%= @ticket.description %></p>
+
+
+<%= form_for @ticket do |f| %>
+
+
+
+  <!-- <%# f.text_area  %> Add column to ticket table with work submissino note -->
+
+  <%= f.label "Submit work" %>
+  <%= f.submit %>
+
+
+<% end %>

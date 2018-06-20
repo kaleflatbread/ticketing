@@ -8,15 +8,33 @@ class Employee < ApplicationRecord
 
 
   def find_manager
-      @manager = self.manager_id
-      Employee.find_by(id: @manager)
+    @manager = self.manager_id
+    Employee.find_by(id: @manager)
   end
 
   def find_manager_name
-      find_manager.name
+    find_manager.name
   end
 
   def find_manager_title
-      find_manager.title
+    find_manager.title
   end
+
+  def list_managers_employees
+    Employee.where(:manager_id => self.id)
+  end
+
+  def number_of_tickets_completed
+    self.tickets.where(:complete => true).count
+  end
+
+  def number_of_outstanding_tickets
+    self.tickets.where(:complete => false).count
+  end
+
+  def next_ticket_due
+    #add due_date to schema + views
+  end
+
+
 end

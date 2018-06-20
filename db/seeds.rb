@@ -11,20 +11,20 @@ Ticket.destroy_all
 EmployeeProject.destroy_all
 
 
-scott = Employee.create(name: "Michael Scott", title: "Regional Employee", username: "michaelscott")
-bluth = Employee.create(name: "Michael Bluth", title: "CEO", username: "michaelbluth", manager_id: nil)
-knope = Employee.create(name: "Leslie Knope", title: "City Council", username: "leslieknope", manager_id: nil)
-swanson = Employee.create(name: "Ron Swanson", title: "Director", username: "ronswanson", manager_id: nil)
-donaghy = Employee.create(name: "Jack Donaghy", title: "GE Vice President of East Coast Television and Microwave Oven Programming", username: "jackdonaghy", manager_id: nil)
+scott = Employee.create(name: "Michael Scott", title: "Regional Employee", username: "michaelscott", email: "scott@gmail.com", password_digest: BCrypt::Password.create("1234"))
+bluth = Employee.create(name: "Michael Bluth", title: "CEO", username: "michaelbluth", manager_id: nil, email: "bluth@gmail.com", password_digest: BCrypt::Password.create("1234"))
+knope = Employee.create(name: "Leslie Knope", title: "City Council", username: "leslieknope", manager_id: nil, email: "knope@gmail.com", password_digest: BCrypt::Password.create("1234"))
+swanson = Employee.create(name: "Ron Swanson", title: "Director", username: "ronswanson", manager_id: nil, email: "swanson@gmail.com", password_digest: BCrypt::Password.create("1234"))
+donaghy = Employee.create(name: "Jack Donaghy", title: "GE Vice President of East Coast Television and Microwave Oven Programming", username: "jackdonaghy", manager_id: nil, email: "donaghy@gmail.com", password_digest: BCrypt::Password.create("1234"))
 
-april = Employee.create(name: "April Ludgate", title: "Deputy Director of Animal Control", manager_id: swanson.id, username: "aprilludgate")
-andy = Employee.create(name: "Andy Dwyer", title: "Shoe Shiner", manager_id: knope.id, username: "andydwyer")
-george = Employee.create(name: "George Michael Bluth", title: "Mr. Manager", manager_id: bluth.id, username: "georgemichaelbluth")
-gob = Employee.create(name: "Gob Bluth", title: "Magician", manager_id: bluth.id, username: "gobbluth")
-liz = Employee.create(name: "Liz Lemon", title: "Head Writer", manager_id: donaghy.id, username: "lizlemon")
-tracy = Employee.create(name: "Tracy Jordan", title: "Actor", manager_id: donaghy.id, username: "tracyjordan")
-pam = Employee.create(name: "Pam Beasley", title: "Receptionist", manager_id: scott.id, username: "pambeasly")
-dwight = Employee.create(name: "Dwight Schrute", title: "Beet Farmer", manager_id: scott.id, username: "dwightscrhute")
+april = Employee.create(name: "April Ludgate", title: "Deputy Director of Animal Control", manager_id: swanson.id, username: "aprilludgate", email: "april@gmail.com", password_digest: BCrypt::Password.create("1234"))
+andy = Employee.create(name: "Andy Dwyer", title: "Shoe Shiner", manager_id: knope.id, username: "andydwyer", email: "andy@gmail.com", password_digest: BCrypt::Password.create("1234"))
+george = Employee.create(name: "George Michael Bluth", title: "Mr. Manager", manager_id: bluth.id, username: "georgemichaelbluth", email: "george@gmail.com", password_digest: BCrypt::Password.create("1234"))
+gob = Employee.create(name: "Gob Bluth", title: "Magician", manager_id: bluth.id, username: "gobbluth", email: "gob@gmail.com", password_digest: BCrypt::Password.create("1234"))
+liz = Employee.create(name: "Liz Lemon", title: "Head Writer", manager_id: donaghy.id, username: "lizlemon", email: "liz@gmail.com", password_digest: BCrypt::Password.create("1234"))
+tracy = Employee.create(name: "Tracy Jordan", title: "Actor", manager_id: donaghy.id, username: "tracyjordan", email: "tracy@gmail.com", password_digest: BCrypt::Password.create("1234"))
+pam = Employee.create(name: "Pam Beasley", title: "Receptionist", manager_id: scott.id, username: "pambeasly", email: "pam@gmail.com", password_digest: BCrypt::Password.create("1234"))
+dwight = Employee.create(name: "Dwight Schrute", title: "Beet Farmer", manager_id: scott.id, username: "dwightscrhute", email: "dwight@gmail.com", password_digest: BCrypt::Password.create("1234"))
 
 
 pit = Project.create(name: "the pit", description: "fill the pit")
