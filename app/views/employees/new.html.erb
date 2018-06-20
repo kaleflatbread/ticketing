@@ -8,6 +8,15 @@
   <%= f.label :manager_id %>
   <%= f.collection_select(:manager_id, @all_managers, :id, :name) %><br>
 
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %><br>
+
 
   <%= f.submit %>
 <% end %>

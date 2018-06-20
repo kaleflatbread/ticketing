@@ -29,7 +29,7 @@ module SessionHelper
   end
 
   def logged_in_employee
-    Employee.find_by(id: logged_in_employee_id_integer)
+    @employee = Employee.find_by(id: logged_in_employee_id_integer)
   end
 
 end
