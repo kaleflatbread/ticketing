@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  
+
   has_many :tickets
   has_many :employee_projects
   has_many :employees, through: :employee_projects
@@ -26,7 +26,7 @@ class Project < ApplicationRecord
   end
 
   def percentage_complete
-    (number_of_tickets_completed / count_tickets)*100.0.to_s + "%"
+    (number_of_tickets_completed.to_f / count_tickets.to_f)*100.0
   end
 
   def sort_tickets
