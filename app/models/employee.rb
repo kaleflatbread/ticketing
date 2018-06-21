@@ -3,8 +3,9 @@ class Employee < ApplicationRecord
   has_many :employee_projects
   has_many :projects, through: :employee_projects
   has_many :tickets
-  validates :name, :title, presence: true
-  validates :username, uniqueness: true
+
+  validates :name, :title, :username, :email, :password_digest, presence: true
+  validates :username, :email, uniqueness: true
 
   has_secure_password
 

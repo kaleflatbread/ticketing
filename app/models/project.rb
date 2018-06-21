@@ -3,6 +3,7 @@ class Project < ApplicationRecord
   has_many :tickets
   has_many :employee_projects
   has_many :employees, through: :employee_projects
+  
   validates :name, :description, presence: true
 
   def count_tickets
@@ -37,6 +38,7 @@ class Project < ApplicationRecord
   def next_ticket_due
     sort_tickets.first
   end
+
 
 
 

@@ -1,9 +1,9 @@
 class Ticket < ApplicationRecord
-  
+
   belongs_to :project
   belongs_to :employee
 
-  validates :name, :description, :project_id, :employee_id, presence: true
+  validates :name, :description, :project_id, :employee_id, :due_date, presence: true
 
   def find_project_description
     self.project.description
@@ -33,6 +33,14 @@ class Ticket < ApplicationRecord
   def find_logged_in_employee
     @id = session[:employee_id]
     @employee_array = Employee.where(:manager_id => @id)
+  end
+
+  def is_ticket_complete?
+    self.complete ? "CLOSED" : "OPEN"
+  end
+
+  def find_assigned_employee
+    self.employee.name
   end
 
 
