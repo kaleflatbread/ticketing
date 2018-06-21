@@ -35,6 +35,11 @@ i {
    margin: 35px;
 
  }
+.menu {
+  background: linear-gradient(45deg, red, orange, yellow, green, blue, purple, pink);
+
+}
+
 
 .page-headline {
   font-size: 42px;
@@ -72,5 +77,15 @@ i {
 .date-field {
   max-width: 12%;;
 
-
+}
+/* 225deg, #ffb6c1, white, white, white, #3F9ED5, #1F2350 */
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0%;
+    width: 100%;
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, purple, pink);
+    color: white;
+    text-align: left;
+    padding: 1.2%;
 }

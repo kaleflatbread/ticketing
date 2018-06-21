@@ -24,6 +24,7 @@
         <a href="<%= employees_path %>" class="item">Employees</a>
         <a href="<%= projects_path %>" class="item">Projects</a>
         <a href="<%= new_ticket_path %>" class="item">New Ticket</a>
+        <a href="<%= analytics_path %>" class="item">Analytics</a>
 
         <div class="right menu">
 
@@ -46,13 +47,14 @@
       </div>
 
 
-      <%# if logged_in? %>
-          <%#= link_to logged_in_employee.name, employee_path(logged_in_employee) %>
-
-
 
 
 
 
   </body>
+    <div class="footer">
+      Created by: <br>
+      <a href="https://github.com/kaleflatbread">kaleflatbread</a><br>
+      <a href="https://github.com/mattzuzolo">mattzuzolo</a>
+    </div>
 </html>
