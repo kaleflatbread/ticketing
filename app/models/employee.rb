@@ -22,9 +22,10 @@ class Employee < ApplicationRecord
     find_manager.title
   end
 
-  def list_of_managers
-    @employees.all.select {|employee| employee.manager_id == nil}
-  end
+  # def list_of_managers
+  #   byebug
+  #
+  # end
 
   def list_managers_employees
     Employee.where(:manager_id => self.id)
