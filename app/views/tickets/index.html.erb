@@ -1,11 +1,10 @@
-<h1>Ticket index:</h1>
+<h1 class="page-headline">Ticket Directory</h1>
 
- <%# make an outer loop to iterate through a manager's specific employees %>
 <ul>
+
     <% @tickets.each do |ticket| %>
-      <li> <strong><%= link_to ticket.name, ticket %></strong> </li>
+      <li class="list-item"> <%= link_to ticket.name.titleize, ticket %> <a href="<%= edit_ticket_path(ticket) %>"><i class="far fa-edit"></i></a> </li>
         <% if logged_in_as_manager?(Employee.find_by(id: session[:employee_id]).manager_id) %>
-          <%= link_to "Edit", edit_ticket_path(ticket) %>
         <% end %>
     <% end %>
 
@@ -13,5 +12,5 @@
 
 
 <% if logged_in_as_manager?(Employee.find_by(id: session[:employee_id]).manager_id) %>
-    <%= link_to "New", new_ticket_path %>
+  <button class="ui button"><a href="<%= new_ticket_path %>">New Ticket</a></button>
 <% end %>

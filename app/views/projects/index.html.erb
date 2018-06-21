@@ -1,14 +1,15 @@
-<h1>Current Projects</h1>
+<h1 class="page-headline">Project Directory</h1>
 
 <ul>
+
   <% @projects.each do |project| %>
-     <li> <%= link_to project.name, project %></li>
+     <li class="list-item"> <%= link_to project.name.titleize, project %> <a href="<%= edit_project_path(project) %>"><i class="far fa-edit"></i></a></li>
     <% if logged_in_as_manager?(Employee.find_by(id: session[:employee_id]).manager_id) %>
-      <%= link_to "Edit", edit_project_path(project) %>
     <% end %>
   <% end %>
 </ul>
 
+
 <% if logged_in_as_manager?(Employee.find_by(id: session[:employee_id]).manager_id) %>
-  <%= link_to "New", new_project_path %>
+     <button class="ui button"><a href="<%= new_project_path %>">New Project</a></button>
 <% end %>

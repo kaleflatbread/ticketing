@@ -1,12 +1,12 @@
-<h1>Ticket Name: <%= @ticket.name %></h1>
-<p>Assigned Employee: <%= @ticket.find_assigned_employee %></p>
+<h1 class="page-headline">Ticket Name: <%= @ticket.name.titleize %></h1>
+<h3 class="page-subhead">Assigned Employee: <%= @ticket.find_assigned_employee %></h3>
 
-<p><%= @ticket.description %></p>
-<p>Due Date: <%= @ticket.due_date.strftime("%m/%d/%Y") %></p>
-<p>Status: <%= @ticket.is_ticket_complete? %></p>
+<h3 class="list-head"><%= @ticket.description %></h3>
+<h3 class="list-head">Due Date: <%= @ticket.due_date.strftime("%m/%d/%Y") %></h3>
+<h3 class="list-head">Status: <%= @ticket.is_ticket_complete? %></h3>
 
-<%= link_to "Edit this ticket", edit_ticket_path %><br><br>
+<button class="ui button"><a href="<%= edit_ticket_path %>">Edit this ticket</a></button><br><br>
 
-<%= link_to "Return to tickets page", tickets_path %><br>
+<button class="ui button"><a href="<%=tickets_path %>">Return to tickets page</a></button><br><br>
 
-<%= link_to "Return to project page", project_path(@ticket.project) %>
+<button class="ui button"><a href="<%= project_path(@ticket.project) %>">Return to project page </a></button>

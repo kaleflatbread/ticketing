@@ -1,31 +1,27 @@
 <h1>Log in:</h1>
 
+
 <%= form_with(model: Employee, local: true, url: sessions_path) do |form| %>
 
     <% if @errors.any? %>
       <div id="error_explanation">
         <h3>Something went wrong with your login</h3>
-
-          <%# @errors.each do |message| %>
-            <%# message %>
-          <%# end %>
       </div>
     <% end %>
-
     <br>
+  <div class="ui form">
+      <%= form.label :username %>
+      <div class="field simple-field">
+      <%= form.text_field :username %>
+      </div>
 
-    <div class="field">
-        <%= form.label :username %>
-        <%= form.text_field :username %>
+      <%= form.label :password %>
+      <div class="field simple-field">
+      <%= form.password_field :password %>
+      </div>
+
+      <div class="actions">
+      <%= form.submit "Log in", :class => "ui button" %>
+      </div>
     </div>
-
-    <div class="field">
-        <%= form.label :password %>
-        <%= form.password_field :password %>
-    </div>
-
-    <div class="actions">
-        <%= form.submit "Log in" %>
-    </div>
-
 <% end %>

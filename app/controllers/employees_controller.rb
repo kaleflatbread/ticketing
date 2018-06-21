@@ -17,6 +17,7 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
     @all_managers = Employee.all
+    @list_of_managers = Employee.select {|employee| employee.manager_id == nil}
 
     if @employee.valid?
       @employee.save
@@ -37,8 +38,6 @@ class EmployeesController < ApplicationController
     @employee = Employee.find(params[:id])
     @all_managers = Employee.all
     @list_of_managers = Employee.select {|employee| employee.manager_id == nil}
-    
-
 
     if @employee.update(employee_params)
       redirect_to @employee

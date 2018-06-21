@@ -4,6 +4,8 @@
     <title>Ticketing</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Quicksand|Raleway" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
     <link rel="stylesheet" href="./stylesheet/login.css">
@@ -11,9 +13,6 @@
     <%= javascript_include_tag 'application' %>
     <meta name="google" content="notranslate" />
   </head>
-
-
-
 
   <body>
     <header>
@@ -42,7 +41,9 @@
         </div>
       </div>
 
-      <main><%= yield %></main>
+      <div id="jumbotron">
+          <main><%= yield %></main>
+      </div>
 
 
       <%# if logged_in? %>

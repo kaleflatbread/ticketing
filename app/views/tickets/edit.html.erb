@@ -1,25 +1,47 @@
+<div class="ui form">
 <%= form_for @ticket do |f| %>
+
+
   <%= f.label :name %>
+  <div class="field simple-field">
   <%= f.text_field :name %><br>
+  </div>
+
 
   <%= f.label :description %>
+  <div class="field">
   <%= f.text_area :description %><br>
+  </div>
 
   <%= f.label :due_date %>
+  <div class="date-field">
   <%= f.date_select :due_date %><br>
+  </div>
+
 
   <%= f.label :complete_true, "True" %>
   <%= f.radio_button :complete, true %>
+
+
+
   <%= f.label :complete_false, "False" %>
   <%= f.radio_button :complete, false %><br>
 
+
+
   <%= f.label :project_id %>
+  <div class="simple-field">
   <%= f.collection_select(:project_id, @all_projects, :id, :name) %><br>
+  </div>
 
   <%= f.label :employee_id %>
+  <div class="simple-field">
   <%= f.collection_select(:employee_id, @all_employees, :id, :name) %><br>
+  </div>
 
 
 
-  <%= f.submit %>
+  <%= f.submit "Submit", :class => "ui button" %>
 <% end %>
+
+</div>

@@ -1,10 +1,17 @@
+<div class="ui form">
+
 <%= form_for @project do |f| %>
   <%= f.label :name %>
+  <div class="field simple-field">
   <%= f.text_field :name %><br>
+  </div>
 
   <%= f.label :description %>
-  <%= f.text_field :description %><br>
+  <div class="field">
+  <%= f.text_area :description %><br>
+  </div>
 
 
-  <%= f.submit %>
+  <%= f.submit "Submit", :class => "ui button" %>
 <% end %>
+</div>

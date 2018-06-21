@@ -13,3 +13,64 @@
  *= require_tree .
  *= require_self
  */
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight:700;
+}
+
+h3, h4 {
+  font-family: 'Raleway', sans-serif;
+  font-weight:500;
+}
+
+i {
+  font-family: FontAwesome;
+  font-style: normal;
+  font-size: 15px;
+}
+
+
+ #jumbotron {
+   margin: 35px;
+
+ }
+
+.page-headline {
+  font-size: 42px;
+}
+
+.page-subhead {
+  font-size: 28px;
+}
+
+.list-head {
+  font-size: 25px;
+}
+
+.list-item {
+  font-size: 24px;
+}
+
+.sub-list-head {
+  font-size: 25px;
+  text-indent: 2em;
+}
+
+.sub-list-item {
+  font-size: 24px;
+  text-indent: 2em;
+  list-style-position: inside;
+
+}
+
+.simple-field {
+  width: 15%;
+
+}
+
+.date-field {
+  max-width: 12%;;
+
+
+}

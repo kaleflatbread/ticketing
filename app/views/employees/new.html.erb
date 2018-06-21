@@ -1,24 +1,36 @@
 <h1>Create new account</h1>
-
+<div class="ui form">
 <%= form_for @employee do |f| %>
   <%= f.label :name %>
+  <div class="field simple-field">
   <%= f.text_field :name %><br>
+  </div>
 
   <%= f.label :title %>
+  <div class="field simple-field">
   <%= f.text_field :title %><br>
+  </div>
 
   <%= f.label :manager_id %>
+  <div class="field simple-field">
   <%= f.collection_select(:manager_id, @list_of_managers, :id, :name, :include_blank => true) %><br>
+  </div>
 
   <%= f.label :email %>
+  <div class="field simple-field">
   <%= f.text_field :email %><br>
+  </div>
 
   <%= f.label :username %>
+  <div class="field simple-field">
   <%= f.text_field :username %><br>
+  </div>
 
   <%= f.label :password %>
+  <div class="field simple-field">
   <%= f.password_field :password %><br>
+  </div>
 
-
-  <%= f.submit %>
+  <%= f.submit "Submit", :class => "ui button" %>
 <% end %>
+</div>

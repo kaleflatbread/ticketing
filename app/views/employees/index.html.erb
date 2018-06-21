@@ -1,7 +1,7 @@
-<h1>Employee Directory:</h1>
+<h1 class="page-headline">Employee Directory</h1>
 
 <ul>
   <% @employees.each do |employee| %>
-    <li> <%= link_to employee.name, employee %></li>
+    <li class="list-item"> <%= link_to employee.name, employee %></li>
   <% end %>
 </ul>
