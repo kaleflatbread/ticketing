@@ -1,9 +1,27 @@
 <h1>Project Name: <%= @project.name.titleize %></h1>
 
-<h4><%= @project.name %> tasks</h4>
+<h2>Tickets</h2>
 
+
+<h4>Open Tickets</h4>
     <ul>
       <% @project.tickets.each do |ticket| %>
-        <li><%= link_to ticket.name, ticket %> — Complete? <%= ticket.complete %></li>
+        <% if ticket.complete == false %>
+        <li><%= link_to ticket.name, ticket %> is due on <%= ticket.due_date.strftime("%m/%d/%Y") %></li>
+        <% end %>
       <% end %>
     </ul>
+
+
+<h4>Closed Tickets</h4>
+<ul>
+  <% @project.tickets.each do |ticket| %>
+  <% if ticket.complete == true %>
+    <li><%= link_to ticket.name, ticket %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<br>
+
+<%= link_to "Create a new ticket", new_ticket_path %>

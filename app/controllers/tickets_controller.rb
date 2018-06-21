@@ -8,6 +8,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
     @all_employees = Employee.all
     @all_projects = Project.all
+    
   end
 
   def show

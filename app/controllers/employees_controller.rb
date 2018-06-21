@@ -11,6 +11,7 @@ class EmployeesController < ApplicationController
   def new
     @employee = Employee.new
     @all_managers = Employee.all
+    @list_of_managers = Employee.select {|employee| employee.manager_id == nil}
   end
 
   def create
@@ -28,11 +29,15 @@ class EmployeesController < ApplicationController
   def edit
     find_employee
     @all_managers = Employee.all
+    @list_of_managers = Employee.select {|employee| employee.manager_id == nil}
+
   end
 
   def update
     @employee = Employee.find(params[:id])
     @all_managers = Employee.all
+    @list_of_managers = Employee.select {|employee| employee.manager_id == nil}
+    
 
 
     if @employee.update(employee_params)

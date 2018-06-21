@@ -9,26 +9,49 @@
     <link rel="stylesheet" href="./stylesheet/login.css">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <meta name="google" content="notranslate" />
   </head>
+
+
+
 
   <body>
     <header>
-      <div class="login-buttons">
-      <% if logged_in? %>
-          <%= link_to logged_in_employee.name, employee_path(logged_in_employee) %> is logged in!
-          <button class="ui secondary button">
-            <%= link_to "Logout", destroy_session_path, method: :delete %>
-          </button>
-      <% else %>
-      <button class="ui secondary button">
-          <%= link_to "Register", '/employees/new' %>
-        </button>
-      <button class="ui secondary button">
-          <%= link_to "Login", new_session_path %>
-      </button>
-      <% end %>
-    </div>
-    </header>
-    <main><%= yield %></main>
+
+      <div class="ui menu">
+        <a href="#" class="item">TICKETING SYSTEM</a>
+
+
+        <a href="<%= employees_path %>" class="item">Employees</a>
+        <a href="<%= projects_path %>" class="item">Projects</a>
+        <a href="<%= new_ticket_path %>" class="item">New Ticket</a>
+
+        <div class="right menu">
+
+          <% if logged_in? %>
+            <a href="<%= employee_path(logged_in_employee) %>" class="item"><%= logged_in_employee.name %></a>
+
+            <button class="ui button">
+              <%= link_to "Logout", destroy_session_path, method: :delete %>
+            </button>
+          <% else %>
+            <a href="<%= new_employee_path %>" class="item">Register</a>
+            <a href="<%= new_session_path %>" class="item">Login</a>
+          <% end %>
+
+        </div>
+      </div>
+
+      <main><%= yield %></main>
+
+
+      <%# if logged_in? %>
+          <%#= link_to logged_in_employee.name, employee_path(logged_in_employee) %>
+
+
+
+
+
+
   </body>
 </html>

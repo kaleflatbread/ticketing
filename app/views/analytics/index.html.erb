@@ -1,0 +1,48 @@
+<h1>Analytics Page</h1>
+
+<h3>Tickets Scoreboard</h3>
+
+<!-- <ol> -->
+
+<%# @employees.map do |employee| %#>
+  <%# count_of_complete = employee.tickets.select{|ticket| ticket.complete == true}.count %#>
+
+  <li><%#= ("#{employee.name}  -  #{@count_of_complete}") %#></li>
+<%# end %#>
+</ol>
+
+<%#= sort_by_tickets_completed %#>
+
+<%# @sorted_hash.each do |a, b| %#>
+
+  <%#= "#{a} - #{b}" %#>
+<%# end %>
+
+<%# @employee_ticket_hash.each do |a,b| %>
+<%#= "#{a} - #{b}" %>
+<%# end %>
+
+<ol>
+  <% @employees.each do |employee| %>
+<li> <%=  "#{employee.name} - #{Ticket.all.where(employee_id: employee.id, complete: true).count}" %></li>
+
+  <!-- @employee_ticket_hash[Employee.find_by(id: employee.id).name] = @count -->
+  <!-- # @sorted_hash = @employee_ticket_hash.sort_by{|a,b|, b}.reverse -->
+
+  <% end %>
+</ol>
+
+
+<h3>Project Percentage Complete</h3>
+<ol>
+
+<% @projects.each do |project| %>
+  <% if project.count_tickets == 0 %>
+    <li><%= "#{project.name.titleize} doesn't have any tickets yet!" %></li>
+    <%= link_to "Click here to add a ticket!", new_ticket_path %>
+
+  <% else %>
+    <li><%= "#{project.name.titleize} - #{project.percentage_complete.round(2)}%" %></li>
+  <% end %>
+<% end %>
+</ol>

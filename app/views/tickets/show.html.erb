@@ -1,20 +1,12 @@
 <h1>Ticket Name: <%= @ticket.name %></h1>
+<p>Assigned Employee: <%= @ticket.find_assigned_employee %></p>
 
 <p><%= @ticket.description %></p>
-<p>Due Date:<%= @ticket.due_date %></p>
-<p>Completed?<%= @ticket.complete %></p>
+<p>Due Date: <%= @ticket.due_date.strftime("%m/%d/%Y") %></p>
+<p>Status: <%= @ticket.is_ticket_complete? %></p>
 
+<%= link_to "Edit this ticket", edit_ticket_path %><br><br>
 
+<%= link_to "Return to tickets page", tickets_path %><br>
 
-
-<%= form_for @ticket do |f| %>
-
-
-
-  <!-- <%# f.text_area  %> Add column to ticket table with work submissino note -->
-
-  <%# f.label "Submit work" %>
-  <%# f.submit %>
-
-
-<% end %>
+<%= link_to "Return to project page", project_path(@ticket.project) %>

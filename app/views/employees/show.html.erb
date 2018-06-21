@@ -1,12 +1,21 @@
 <h1><%= @employee.name %></h1>
 
+<% if @employee.manager_id != nil %>
+Manager: <%= @employee.find_manager_name %>
+<% end %>
+
+<% if @employee.list_managers_employees.count != 0 %>
   <h3>Subordinates:</h3>
     <ul>
       <% @employee.list_managers_employees.each do |employee| %>
         <li><%= link_to employee.name, employee %></li>
       <% end %>
-    </ul>
 
+    </ul>
+    <% end %>
+
+
+<% if @employee.projects.count != 0 %>
   <h3>Projects:</h3>
     <!--  add something to say no tickets present -->
     <ul>
@@ -16,9 +25,10 @@
       <ul>
         <% project.sort_tickets.each do |ticket| %>
           <% if !ticket.complete %>
-            <li> <%= link_to ticket.name, ticket %></li> <br>
+            <li> <%= link_to ticket.name, ticket %> is due on <%= ticket.due_date.strftime("%m/%d/%Y") %></li> <br>
           <% end %>
         <% end %>
       </ul>
 
     <% end %>
+<% end %>

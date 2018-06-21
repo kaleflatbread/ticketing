@@ -6,7 +6,7 @@
   <%= f.text_field :title %><br>
 
   <%= f.label :manager_id %>
-  <%= f.collection_select(:manager_id, @all_managers, :id, :name) %><br>
+  <%= f.collection_select(:manager_id, @list_of_managers, :id, :name) %><br>
 
 
   <%= f.submit %>
