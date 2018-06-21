@@ -1,5 +1,6 @@
 <h1 class="page-headline">Ticket Name: <%= @ticket.name.titleize %></h1>
-<h3 class="page-subhead">Assigned Employee: <%= @ticket.find_assigned_employee %></h3>
+<h3 class="page-subhead">Assigned Employee:
+  <a href="<%= employee_path(@ticket.employee) %>"><%= @ticket.find_assigned_employee %></a> </h3>
 
 <h3 class="list-head"><%= @ticket.description %></h3>
 <h3 class="list-head">Due Date: <%= @ticket.due_date.strftime("%m/%d/%Y") %></h3>
