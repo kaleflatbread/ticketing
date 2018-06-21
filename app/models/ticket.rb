@@ -44,4 +44,5 @@ class Ticket < ApplicationRecord
   end
 
 
+
 end
