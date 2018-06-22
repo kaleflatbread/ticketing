@@ -2,11 +2,25 @@
 
   <div class="analytics-container">
 
+    <div class="totals-list">
+      <h3>Totals:</h3>
+      <h3 class="subhead">Employees: <%= @employees.count %></h3>
+
+      <h3 class="subhead">Projects: <%= @projects.count %></h3>
+
+      <h3 class="subhead">Tickets: <%= @tickets.count %></h3>
+    </div>
+
+
     <div class="ticket-complete-list">
     <h3>Completed tickets by employee:</h3>
 
+
     <% @employees.each do |employee| %>
-     <%=  "#{employee.name} - #{Ticket.all.where(employee_id: employee.id, complete: true).count}" %> <br>
+    <% @ticket_count = Ticket.all.where(employee_id: employee.id, complete: true).count  %>
+    <% if @ticket_count > 0 %>
+     <%=  "#{employee.name} - #{@ticket_count}" %> <br>
+     <% end %>
 
       <% end %>
     </div>
@@ -25,5 +39,7 @@
       <% end %>
     <% end %>
     </div>
+
+
 
   </div>
