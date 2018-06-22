@@ -41,12 +41,6 @@ i {
   text-align:center;
 }
 
-/* body {
-  padding-bottom: -1.25rem;
-  margin-bottom: -7.7%;
-  overflow-y: auto;
-} */
-
 .page-headline {
   font-size: 42px;
 }
@@ -72,7 +66,6 @@ i {
   font-size: 24px;
   text-indent: 2em;
   list-style-position: inside;
-
 }
 
 .simple-field {
@@ -94,6 +87,14 @@ i {
     flex-wrap:wrap;
     text-align:center;
     margin:auto;
+}
+
+.flex-cards {
+    display:flex;
+    flex-wrap:wrap;
+    align-items: center;
+    margin:auto;
+
 }
 
 .detailed-lists {
