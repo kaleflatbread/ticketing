@@ -88,10 +88,17 @@ i {
   overflow: hidden;
 }
 
+.flex-detailed-list {
+  display:flex;
+    flex-wrap:wrap;
+    text-align:center;
+    margin:auto;
+}
+
 .detailed-lists {
   margin: auto;
   align-content: center;
-  text-align: center;
+  text-align: left;
 }
 
 .totals-list {
@@ -102,12 +109,13 @@ i {
 .ticket-complete-list {
   float:left;
   padding-left: 40px;
+  text-align:right;
 }
 
 .percent-complete-list {
   float:left;
   padding-left: 40px;
-
+  text-align:left;
 }
 
 .horitzontal-totals {

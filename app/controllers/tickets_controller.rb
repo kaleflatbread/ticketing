@@ -21,6 +21,7 @@ class TicketsController < ApplicationController
     @all_projects = Project.all
     @ticket = Ticket.new(ticket_params)
     if @ticket.valid?
+      
       @ticket.save
       new_ticket = @ticket.project.employee_projects.build(project_id: @ticket.project_id, employee_id: @ticket.employee_id)
       new_ticket.save

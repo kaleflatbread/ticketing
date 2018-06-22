@@ -1,68 +1,59 @@
-<h1 style="text-align: center; font-size: 78px;">Analytics Page</h1>
 
-  <div class="analytics-container">
+    <h1 style="text-align: center; font-size: 78px;">Analytics</h1>
 
-    <div class="horitzontal-totals">
+      <div class="analytics-container">
 
-      <div class="employee-total">
-        <h1 class="total-num"><%= @employees.count %></h1>
-        <p class="total-num-caption">Employees</p>
+        <div class="horitzontal-totals">
+
+          <div class="employee-total">
+            <h1 class="total-num"><%= @employees.count %></h1>
+            <p class="total-num-caption">Employees</p>
+          </div>
+
+          <div class="project-total">
+            <h1 class="total-num"><%= @projects.count %></h1>
+            <p class="total-num-caption">Projects</p>
+          </div>
+
+          <div class="ticket-total">
+            <h1 class="total-num"><%= @tickets.count %></h1>
+            <p class="total-num-caption">Tickets</p>
+          </div>
+
+        </div>
+
+
+        <div class="flex-detailed-list">
+          <div class="detailed-lists">
+
+            <div class="ticket-complete-list">
+            <h3><u>Completed tickets by employee:</u></h3>
+
+
+            <% @employees.each do |employee| %>
+            <% @ticket_count = Ticket.all.where(employee_id: employee.id, complete: true).count  %>
+            <% if @ticket_count > 0 %>
+             <%=  "#{employee.name} - #{@ticket_count}" %> <br>
+             <% end %>
+
+              <% end %>
+            </div>
+
+            <div class="percent-complete-list">
+            <h3><u>Project Percentage Complete:</u></h3>
+
+
+            <% @projects.each do |project| %>
+              <% if project.count_tickets == 0 %>
+              <%= "#{project.name.titleize} doesn't have any tickets yet!" %>
+                <%= link_to "Click here to add a ticket!", new_ticket_path %><br>
+
+              <% else %>
+              <%= "#{project.name.titleize} - #{project.percentage_complete.round(2)}%" %> <br>
+              <% end %>
+            <% end %>
+            </div>
+
+              </div>
+        </div>
       </div>
-
-      <div class="project-total">
-        <h1 class="total-num"><%= @projects.count %></h1>
-        <p class="total-num-caption">Projects</p>
-      </div>
-
-      <div class="ticket-total">
-        <h1 class="total-num"><%= @tickets.count %></h1>
-        <p class="total-num-caption">Tickets</p>
-      </div>
-
-    </div>
-
-    <div class="detailed-lists">
-
-
-
-    <!-- <div class="totals-list">
-      <h3>Totals:</h3>
-      <h3 class="subhead">Employees: <%= @employees.count %></h3>
-
-      <h3 class="subhead">Projects: <%= @projects.count %></h3>
-
-      <h3 class="subhead">Tickets: <%= @tickets.count %></h3>
-    </div> -->
-
-
-    <div class="ticket-complete-list">
-    <h3>Completed tickets by employee:</h3>
-
-
-    <% @employees.each do |employee| %>
-    <% @ticket_count = Ticket.all.where(employee_id: employee.id, complete: true).count  %>
-    <% if @ticket_count > 0 %>
-     <%=  "#{employee.name} - #{@ticket_count}" %> <br>
-     <% end %>
-
-      <% end %>
-    </div>
-
-    <div class="percent-complete-list">
-    <h3>Project Percentage Complete:</h3>
-
-
-    <% @projects.each do |project| %>
-      <% if project.count_tickets == 0 %>
-      <%= "#{project.name.titleize} doesn't have any tickets yet!" %>
-        <%= link_to "Click here to add a ticket!", new_ticket_path %><br>
-
-      <% else %>
-      <%= "#{project.name.titleize} - #{project.percentage_complete.round(2)}%" %> <br>
-      <% end %>
-    <% end %>
-    </div>
-
-      </div>
-
-  </div>
