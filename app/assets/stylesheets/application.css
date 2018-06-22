@@ -37,10 +37,7 @@ i {
    overflow: auto;
 
  }
-.menu {
-  background: linear-gradient(45deg, red, orange, yellow, green, blue, purple, pink);
 
-}
 
 body {
   padding-bottom: -1.25rem;

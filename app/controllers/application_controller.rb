@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     session[:name] ||= params[:name]
   end
 
+  def home
+  
+  end
+
   private
 
   def authenticate!
