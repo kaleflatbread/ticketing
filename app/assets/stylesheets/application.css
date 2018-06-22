@@ -33,7 +33,6 @@ i {
 
  #content-area {
    margin: 35px;
-   overflow: auto;
 
  }
 
@@ -84,6 +83,24 @@ i {
   max-width: 12%;;
 
 }
+
+.analytics-container {
+  overflow: hidden;
+}
+
+.ticket-complete-list {
+  float:left;
+}
+
+.percent-complete-list {
+  float:left;
+  padding-left: 40px;
+
+}
+
+/* .percent-complete-list {
+  float:left;
+} */
 
 /* .footer {
   position: absolute;
