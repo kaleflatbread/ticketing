@@ -8,7 +8,7 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new
     @all_employees = Employee.all
     @all_projects = Project.all
-    
+
   end
 
   def show
@@ -22,6 +22,8 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(ticket_params)
     if @ticket.valid?
       @ticket.save
+      new_ticket = @ticket.project.employee_projects.build(project_id: @ticket.project_id, employee_id: @ticket.employee_id)
+      new_ticket.save
       redirect_to @ticket
     else
       render :new
