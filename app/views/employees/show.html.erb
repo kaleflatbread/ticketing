@@ -1,34 +1,32 @@
 <h1 class="page-headline"><%= @employee.name %></h1>
 
-<% if @employee.manager_id != nil %>
-<h3 class="page-subhead">Manager: <%= @employee.find_manager_name %></h3>
-<% end %>
+  <% if @employee.manager_id != nil %>
+  <h3 class="page-subhead">Manager: <%= @employee.find_manager_name %></h3>
+  <% end %>
 
-<% if @employee.list_managers_employees.count != 0 %>
-  <h3 class="page-subhead">Subordinates:</h3>
-    <ul>
-      <% @employee.list_managers_employees.each do |employee| %>
-        <li class="list-item"><%= link_to employee.name, employee %></li>
-      <% end %>
-
-    </ul>
-    <% end %>
-
-
-<% if @employee.projects.count != 0 %>
-  <h3 class="list-head">Projects:</h3>
-    <!--  add something to say no tickets present -->
-    <ul>
-    <% @employee.projects.each do |project| %>
-      <h3 class="list-head"><%= link_to project.name.titleize, project %>:</h3>
-          <h3 class="sub-list-head">Open tickets:</h3>
+  <% if @employee.list_managers_employees.count != 0 %>
+    <h3 class="page-subhead">Subordinates:</h3>
       <ul>
-        <% project.sort_tickets.each do |ticket| %>
-          <% if !ticket.complete %>
-            <li class="sub-list-item"> <%= link_to ticket.name.titleize, ticket %> is due on <%= ticket.due_date.strftime("%m/%d/%Y") %></li> <br>
-          <% end %>
+        <% @employee.list_managers_employees.each do |employee| %>
+          <li class="list-item"><%= link_to employee.name, employee %></li>
         <% end %>
       </ul>
+      <% end %>
 
-    <% end %>
-<% end %>
+
+  <% if @employee.projects.count != 0 %>
+    <h3 class="list-head">Projects:</h3>
+      <ul>
+      <% @employee.projects.each do |project| %>
+        <h3 class="list-head"><%= link_to project.name.titleize, project %>:</h3>
+            <h3 class="sub-list-head">Open tickets:</h3>
+        <ul>
+          <% project.sort_tickets.each do |ticket| %>
+            <% if !ticket.complete && ticket.employee_id == @employee.id %>
+              <li class="sub-list-item"> <%= link_to ticket.name.titleize, ticket %> is due on <%= ticket.due_date.strftime("%m/%d/%Y") %></li> <br>
+            <% end %>
+          <% end %>
+        </ul>
+
+      <% end %>
+  <% end %>
