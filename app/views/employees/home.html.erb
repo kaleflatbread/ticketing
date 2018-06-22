@@ -6,7 +6,7 @@
       <%= image_tag("people.png") %>
     </div>
     <div class="content">
-      <div class="header">Employee Directory</div>
+      <div class="header"><a href="<%= employees_path %>">Employee Directory</a></div>
       <div class="description">
         View a list of all current employees.
       </div>
@@ -23,7 +23,7 @@
 
   <div class="card">
     <div class="image">
-      <%= link_to image_tag("project.png"), projects_path %>
+      <%= image_tag("project.png") %>
     </div>
     <div class="content">
       <div class="header"><a href="<%= projects_path %>">Project Directory</a></div>
@@ -47,7 +47,7 @@
       <%= image_tag("ticket.png") %>
     </div>
     <div class="content">
-      <div class="header">Ticket Directory</div>
+      <div class="header"><a href="<%= tickets_path %>">Ticket Directory</a></div>
       <div class="description">
         View a list of all current tickets.
       </div>
