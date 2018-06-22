@@ -88,8 +88,15 @@ i {
   overflow: hidden;
 }
 
+.detailed-lists {
+  margin: auto;
+  align-content: center;
+  text-align: center;
+}
+
 .totals-list {
   float:left;
+  align-content: center;
 }
 
 .ticket-complete-list {
@@ -103,6 +110,39 @@ i {
 
 }
 
+.horitzontal-totals {
+  overflow:hidden;
+  text-align: center;
+  /* margin: 0 auto; */
+  padding-top: 25px;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-bottom: 50px;
+}
+
+.employee-total {
+  display:inline-block;
+  padding-right: 40px;
+}
+
+.project-total {
+  display:inline-block;
+  padding-right: 40px;
+}
+
+.ticket-total {
+  display:inline-block;
+  padding-right: 40px;
+}
+
+
+.total-num {
+  font-size: 96px;
+}
+
+.total-num-caption {
+  font-size: 26px;
+}
 
 
 /* .percent-complete-list {
