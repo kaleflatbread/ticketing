@@ -18,6 +18,7 @@
     <h3 class="list-head">Projects:</h3>
       <ul>
       <% @employee.projects.each do |project| %>
+      <% byebug %>
         <h3 class="list-head"><%= link_to project.name.titleize, project %>:</h3>
             <h3 class="sub-list-head">Open tickets:</h3>
         <ul>
