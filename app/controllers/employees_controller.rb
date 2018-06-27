@@ -1,7 +1,8 @@
 class EmployeesController < ApplicationController
+  include SessionHelper
+
   def home
   end
-
 
   def index
     @employees = Employee.all
@@ -24,6 +25,9 @@ class EmployeesController < ApplicationController
 
     if @employee.valid?
       @employee.save
+      byebug
+      EmployeeMailer.with(employee: @employee, test: "test").welcome_email.deliver_now
+      log_in_employee!(@employee.id)
       redirect_to @employee
     else
       render :new

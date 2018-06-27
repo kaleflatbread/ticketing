@@ -4,8 +4,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate!, except: [:new, :create]
 
-  helper SessionHelper
-
+  
   def current_user
     session[:name] ||= params[:name]
   end
